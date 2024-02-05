@@ -1,17 +1,17 @@
 'use client';
 
-import { LoginSchema } from '@/app/schemas';
+import { LoginSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { login } from '../../../actions/login';
+import { login } from '../../actions/login';
+import AlertError from '../alert-error';
+import AlertSuccess from '../alert-success';
 import { Button } from '../ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 import CardWrapper from './card-wrapper';
-import AlertError from '../alert-error';
-import AlertSuccess from '../alert-success';
 
 type Props = {};
 
@@ -32,10 +32,10 @@ const LoginForm = (props: Props) => {
     setSuccess('');
     startTransition(() => {
       login(data).then((res) => {
-        if (res.error) {
+        if (res?.error) {
           setError(res.error);
         } else {
-          setSuccess(res.success);
+          setSuccess('Login was successful');
         }
       });
     });

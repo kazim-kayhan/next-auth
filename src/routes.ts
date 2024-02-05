@@ -1,25 +1,35 @@
 /**
- * A list of public routes
- * @type {string[]} publicRoutes
+ * An array of routes that are accessible to the public
+ * These routes do not require authentication
+ * @type {string[]}
  */
-export const publicRoutes = ['/'];
+export const publicRoutes = [
+  "/",
+  "/auth/new-verification"
+];
 
 /**
- * A list of auth routes
- * These routes will redirect logged in users to the home dashboard page
- * @type {string[]} authRoutes
+ * An array of routes that are used for authentication
+ * These routes will redirect logged in users to /settings
+ * @type {string[]}
  */
-export const privateRoutes = ['/auth/login', '/auth/register'];
+export const authRoutes = [
+  "/auth/login",
+  "/auth/register",
+  "/auth/error",
+  "/auth/reset",
+  "/auth/new-password"
+];
 
 /**
- * The prefix for auth routes
- * Routes that start with this prefix are used for authentication purposes
- * @type {string[]} apiAuthPrefix
+ * The prefix for API authentication routes
+ * Routes that start with this prefix are used for API authentication purposes
+ * @type {string}
  */
-export const apiAuthPrefix = '/api/auth';
+export const apiAuthPrefix = "/api/auth";
 
 /**
- * The default redirect route for authenticated users
- * @type {string[]} DEFAULT_REDIRECT
+ * The default redirect path after logging in
+ * @type {string}
  */
-export const DEFAULT_REDIRECT = '/dashboard';
+export const DEFAULT_LOGIN_REDIRECT = "/dashboard";

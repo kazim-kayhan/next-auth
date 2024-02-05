@@ -1,11 +1,11 @@
 'use client';
 
-import { RegisterSchema } from '@/app/schemas';
+import { RegisterSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { register } from '../../../actions/register';
+import { register } from '../../actions/register';
 import AlertError from '../alert-error';
 import AlertSuccess from '../alert-success';
 import { Button } from '../ui/button';
