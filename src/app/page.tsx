@@ -1,3 +1,4 @@
+import { auth } from '@/auth';
 import LoginButton from '@/components/auth/login-button';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -5,7 +6,9 @@ import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['600'] });
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+  console.log('🚀 ~ Home ~ session:', session);
   return (
     <main className='h-full flex flex-col justify-center items-center'>
       <div className='space-y-6 text-center'>

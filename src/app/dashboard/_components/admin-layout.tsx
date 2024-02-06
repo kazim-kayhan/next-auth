@@ -12,14 +12,15 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
+import { siteSettings } from '@/config/site.settings';
 import { cn } from '@/lib/utils';
-import { siteSettings } from '../../../config/site.settings';
 
 type Props = {
   children: React.ReactNode;
+  signOutButton: React.ReactNode;
 };
 
-export default function AdminLayout({ children }: Props) {
+export default function AdminLayout({ children, signOutButton }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -70,7 +71,7 @@ export default function AdminLayout({ children }: Props) {
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className='flex grow flex-col gap-y-5 overflow-y-auto bg-background px-6 pb-4'>
+                <div className='flex grow flex-col gap-y-5 overflow-y-auto  px-6 pb-4'>
                   <div className='flex h-16 shrink-0 items-center'>
                     <Logo className='h-8 w-auto' />
                   </div>
@@ -84,7 +85,7 @@ export default function AdminLayout({ children }: Props) {
                                 href={item.href}
                                 className={cn(
                                   item.current
-                                    ? 'bg-muted text-primary'
+                                    ? 'bg-primary text-primary-foreground hover:text-foreground'
                                     : 'text-muted-foreground hover:text-primary hover:bg-muted',
                                   'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                 )}
@@ -92,7 +93,7 @@ export default function AdminLayout({ children }: Props) {
                                 <item.icon
                                   className={cn(
                                     item.current
-                                      ? 'text-primary'
+                                      ? 'text-primary-foreground group-hover:text-foreground'
                                       : 'text-muted-foreground group-hover:text-primary',
                                     'h-6 w-6 shrink-0'
                                   )}
@@ -115,7 +116,7 @@ export default function AdminLayout({ children }: Props) {
                                 href={section.href}
                                 className={cn(
                                   section.current
-                                    ? 'bg-muted text-primary'
+                                    ? 'bg-primary text-primary-foreground hover:text-foreground'
                                     : 'text-muted-foreground hover:text-primary hover:bg-muted',
                                   'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                 )}
@@ -125,7 +126,7 @@ export default function AdminLayout({ children }: Props) {
                                     section.current
                                       ? 'text-primary border-primary'
                                       : 'text-muted-foreground border-border group-hover:border-primary group-hover:text-primary',
-                                    'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-background'
+                                    'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium'
                                   )}
                                 >
                                   {section.initial}
@@ -144,7 +145,7 @@ export default function AdminLayout({ children }: Props) {
                                 href={item.href}
                                 className={cn(
                                   item.current
-                                    ? 'bg-muted text-primary'
+                                    ? 'bg-primary text-primary-foreground hover:text-foreground'
                                     : 'text-muted-foreground hover:text-primary hover:bg-muted',
                                   'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                 )}
@@ -152,7 +153,7 @@ export default function AdminLayout({ children }: Props) {
                                 <item.icon
                                   className={cn(
                                     item.current
-                                      ? 'text-primary'
+                                      ? 'text-primary-foreground group-hover:text-foreground'
                                       : 'text-muted-foreground group-hover:text-primary',
                                     'h-6 w-6 shrink-0'
                                   )}
@@ -176,7 +177,7 @@ export default function AdminLayout({ children }: Props) {
       {/* Static sidebar for desktop */}
       <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-border bg-background px-6 pb-4'>
+        <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border  px-6 pb-4'>
           <div className='flex h-16 shrink-0 items-center'>
             <Logo className='h-8 w-auto' />
           </div>
@@ -190,7 +191,7 @@ export default function AdminLayout({ children }: Props) {
                         href={item.href}
                         className={cn(
                           item.current
-                            ? 'bg-muted text-primary'
+                            ? 'bg-primary text-primary-foreground hover:text-foreground'
                             : 'text-muted-foreground hover:text-primary hover:bg-muted',
                           'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                         )}
@@ -198,7 +199,7 @@ export default function AdminLayout({ children }: Props) {
                         <item.icon
                           className={cn(
                             item.current
-                              ? 'text-primary'
+                              ? 'text-primary-foreground group-hover:text-foreground'
                               : 'text-muted-foreground group-hover:text-primary',
                             'h-6 w-6 shrink-0'
                           )}
@@ -221,7 +222,7 @@ export default function AdminLayout({ children }: Props) {
                         href={section.href}
                         className={cn(
                           section.current
-                            ? 'bg-muted text-primary'
+                            ? 'bg-primary text-primary-foreground hover:text-foreground'
                             : 'text-muted-foreground hover:text-primary hover:bg-muted',
                           'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                         )}
@@ -229,9 +230,9 @@ export default function AdminLayout({ children }: Props) {
                         <span
                           className={cn(
                             section.current
-                              ? 'text-primary border-primary'
+                              ? 'text-primary-foreground group-hover:text-foreground'
                               : 'text-muted-foreground border-border group-hover:border-primary group-hover:text-primary',
-                            'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-background'
+                            'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium'
                           )}
                         >
                           {section.initial}
@@ -250,7 +251,7 @@ export default function AdminLayout({ children }: Props) {
                         href={item.href}
                         className={cn(
                           item.current
-                            ? 'bg-muted text-primary'
+                            ? 'bg-primary text-primary-foreground hover:text-foreground'
                             : 'text-muted-foreground hover:text-primary hover:bg-muted',
                           'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                         )}
@@ -258,7 +259,7 @@ export default function AdminLayout({ children }: Props) {
                         <item.icon
                           className={cn(
                             item.current
-                              ? 'text-primary'
+                              ? 'text-primary-foreground group-hover:text-foreground'
                               : 'text-muted-foreground group-hover:text-primary',
                             'h-6 w-6 shrink-0'
                           )}
@@ -276,7 +277,7 @@ export default function AdminLayout({ children }: Props) {
       </div>
 
       <div className='lg:pl-72'>
-        <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-border bg-background px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
+        <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border  px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
           <button
             type='button'
             className='-m-2.5 p-2.5 text-muted-foreground lg:hidden'
@@ -300,7 +301,7 @@ export default function AdminLayout({ children }: Props) {
               />
               <Input
                 id='search-field'
-                className='block h-8 w-full rounded-full border-border py-0 pl-8 pr-0 text-foreground placeholder:text-muted-foreground sm:text-sm'
+                className='block h-8 w-full rounded-full border py-0 pl-8 pr-0 text-foreground placeholder:text-muted-foreground sm:text-sm'
                 placeholder='Search...'
                 type='search'
                 name='search'
@@ -350,7 +351,7 @@ export default function AdminLayout({ children }: Props) {
                   leaveFrom='transform opacity-100 scale-100'
                   leaveTo='transform opacity-0 scale-95'
                 >
-                  <Menu.Items className='absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-background py-2 shadow-lg ring-1 ring-foreground/5 focus:outline-none'>
+                  <Menu.Items className='absolute right-0 z-10 mt-2.5 space-y-1 w-32 origin-top-right rounded-md bg-background shadow-lg ring-1 ring-foreground/5 focus:outline-none'>
                     {siteSettings.authorizedLinks.map((item) => (
                       <Menu.Item key={item.name}>
                         {({ active }) => (
@@ -358,16 +359,24 @@ export default function AdminLayout({ children }: Props) {
                             href={item.href}
                             className={cn(
                               active
-                                ? 'bg-muted text-primary'
-                                : 'text-muted-foreground hover:text-primary hover:bg-muted',
-                              'flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                                ? 'bg-primary text-primary-foreground hover:text-foreground'
+                                : 'text-muted-foreground hover:text-foreground hover:bg-primary',
+                              'flex gap-x-3 w-full justify-start rounded-md p-2 text-sm leading-6 font-semibold hover:no-underline group'
                             )}
                           >
+                            <item.icon
+                              className={cn(
+                                'text-muted-foreground group-hover:text-foreground',
+                                'size-5 shrink-0'
+                              )}
+                              aria-hidden='true'
+                            />
                             {item.name}
                           </Link>
                         )}
                       </Menu.Item>
                     ))}
+                    {signOutButton}
                   </Menu.Items>
                 </Transition>
               </Menu>

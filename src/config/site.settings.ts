@@ -1,4 +1,5 @@
 import { ChartPieIcon, Cog6ToothIcon, HomeIcon, UsersIcon } from '@heroicons/react/24/outline';
+import { User } from 'lucide-react';
 
 export const siteSettings = {
   name: 'KabulShop',
@@ -17,10 +18,7 @@ export const siteSettings = {
     address: '',
   },
   headerLinks: [],
-  authorizedLinks: [
-    { name: 'Profile', href: '#' },
-    { name: 'Sign out', href: '#' },
-  ],
+  authorizedLinks: [{ name: 'Profile', href: '#', icon: User }],
   currencyCode: 'USD',
   sidebarLinks: {
     admin: {

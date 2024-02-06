@@ -8,7 +8,7 @@ type LogoProps = {
 const Logo = ({ className }: LogoProps) => {
   return (
     <Image
-      src='/logo.png'
+      src='/logo.svg'
       className={cn('object-cover text-black', className)}
       width={180}
       height={160}
