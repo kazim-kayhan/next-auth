@@ -2,6 +2,7 @@
 
 import { LoginSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useSearchParams } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -16,6 +17,10 @@ import CardWrapper from './card-wrapper';
 type Props = {};
 
 const LoginForm = (props: Props) => {
+  const searchParams = useSearchParams();
+  const errorParam = searchParams.get('error');
+  const errorFromUrl =
+    errorParam === 'OAuthAccountNotLinked' ? 'Email already in use with another provider' : '';
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
   const [isPending, startTransition] = useTransition();
@@ -82,7 +87,7 @@ const LoginForm = (props: Props) => {
               )}
             />
           </div>
-          <AlertError message={error} />
+          <AlertError message={error || errorFromUrl} />
           <AlertSuccess message={success} />
           <Button type='submit' className='w-full' disabled={isPending}>
             Login
