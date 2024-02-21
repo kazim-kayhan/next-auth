@@ -53,6 +53,19 @@ export const {
     },
   },
   callbacks: {
+    async signIn({ user, account }) {
+      console.log('🚀 ~ signIn ~ user:', user);
+      // Allow OAuth accounts to sign in without email verification
+      if (account?.provider !== 'credentials') return true;
+
+      if (!user) return false;
+
+      const existingUser = await getUserById(user.id!);
+      if (!existingUser?.emailVerified) return false;
+
+      // TODO: Add two-factor authentication check here
+      return true;
+    },
     async session({ token, session }) {
       if (token.sub && session.user) {
         session.user.id = token.sub;

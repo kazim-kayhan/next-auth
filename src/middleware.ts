@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 
 import authConfig from '@/auth.config';
 import { DEFAULT_LOGIN_REDIRECT, apiAuthPrefix, authRoutes, publicRoutes } from '@/routes';
+import { analytics } from './lib/analytics';
 
 const { auth } = NextAuth(authConfig);
 
@@ -33,6 +34,17 @@ export default auth((req) => {
     const encodedCallbackUrl = encodeURIComponent(callbackUrl);
 
     return Response.redirect(new URL(`/auth/login?callbackUrl=${encodedCallbackUrl}`, nextUrl));
+  }
+
+  if (nextUrl.pathname === '/') {
+    try {
+      analytics.track('pageview', {
+        page: '/',
+        country: req.geo?.country,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return null;

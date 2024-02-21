@@ -36,13 +36,17 @@ const LoginForm = (props: Props) => {
     setError('');
     setSuccess('');
     startTransition(() => {
-      login(data).then((res) => {
-        if (res?.error) {
-          setError(res.error);
-        } else {
-          setSuccess('Login was successful');
-        }
-      });
+      login(data)
+        .then((res) => {
+          if (res?.error) {
+            setError(res.error);
+          } else {
+            setSuccess(res?.success);
+          }
+        })
+        .catch((error) => {
+          setError('An error occurred while logging in. Please try again.');
+        });
     });
   };
   return (
