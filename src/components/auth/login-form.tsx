@@ -1,54 +1,55 @@
-'use client';
+'use client'
 
-import { LoginSchema } from '@/schemas';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useSearchParams } from 'next/navigation';
-import { useState, useTransition } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { login } from '../../actions/login';
-import AlertError from '../alert-error';
-import AlertSuccess from '../alert-success';
-import { Button } from '../ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
-import { Input } from '../ui/input';
-import CardWrapper from './card-wrapper';
+import { LoginSchema } from '@/schemas'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useSearchParams } from 'next/navigation'
+import { useState, useTransition } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { login } from '../../actions/login'
+import AlertError from '../alert-error'
+import AlertSuccess from '../alert-success'
+import { Button } from '../ui/button'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form'
+import { Input } from '../ui/input'
+import CardWrapper from './card-wrapper'
 
-type Props = {};
+type Props = {}
 
 const LoginForm = (props: Props) => {
-  const searchParams = useSearchParams();
-  const errorParam = searchParams.get('error');
+  const searchParams = useSearchParams()
+  const errorParam = searchParams.get('error')
   const errorFromUrl =
-    errorParam === 'OAuthAccountNotLinked' ? 'Email already in use with another provider' : '';
-  const [error, setError] = useState<string | undefined>('');
-  const [success, setSuccess] = useState<string | undefined>('');
-  const [isPending, startTransition] = useTransition();
+    errorParam === 'OAuthAccountNotLinked' ? 'Email already in use with another provider' : ''
+  const [error, setError] = useState<string | undefined>('')
+  const [success, setSuccess] = useState<string | undefined>('')
+  const [isPending, startTransition] = useTransition()
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: '',
-      password: '',
-    },
-  });
+      password: ''
+    }
+  })
 
   const onSubmit = (data: z.infer<typeof LoginSchema>) => {
-    setError('');
-    setSuccess('');
+    setError('')
+    setSuccess('')
     startTransition(() => {
       login(data)
         .then((res) => {
           if (res?.error) {
-            setError(res.error);
+            setError(res.error)
           } else {
-            setSuccess(res?.success);
+            setSuccess(res?.success)
           }
         })
         .catch((error) => {
-          setError('An error occurred while logging in. Please try again.');
-        });
-    });
-  };
+          console.log('🚀 ~ startTransition ~ error:', error)
+          setError('An error occurred while logging in. Please try again.')
+        })
+    })
+  }
   return (
     <CardWrapper
       headerLabel='Welcome Back'
@@ -70,6 +71,7 @@ const LoginForm = (props: Props) => {
                       {...field}
                       placeholder='example@email.com'
                       type='email'
+                      autoComplete='email'
                       disabled={isPending}
                     />
                   </FormControl>
@@ -99,7 +101,7 @@ const LoginForm = (props: Props) => {
         </form>
       </Form>
     </CardWrapper>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

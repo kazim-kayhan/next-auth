@@ -1,9 +1,9 @@
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 type LogoProps = {
-  className?: string;
-};
+  className?: string
+}
 
 const Logo = ({ className }: LogoProps) => {
   return (
@@ -14,7 +14,7 @@ const Logo = ({ className }: LogoProps) => {
       height={160}
       alt='logo'
     />
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

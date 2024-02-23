@@ -1,9 +1,9 @@
-import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function NotFound() {
+export default function NotFound () {
   return (
     <main className='relative isolate min-h-full'>
       <Image
@@ -11,7 +11,7 @@ export default function NotFound() {
         alt='Find your way back home.'
         width={1920}
         height={1080}
-        className='absolute inset-0  -z-10 h-full w-full object-cover object-center'
+        className='absolute inset-0 -z-10 size-full object-cover object-center'
       />
       <div className='mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8'>
         <p className='text-base font-semibold leading-8 text-foreground'>404</p>
@@ -24,12 +24,12 @@ export default function NotFound() {
         <div className='mt-10 flex justify-center'>
           <Link
             href='/'
-            className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold gap-x-1')}
+            className={cn(buttonVariants({ variant: 'outline' }), 'gap-x-1 font-semibold')}
           >
             <span aria-hidden='true'>&larr;</span> Back to home
           </Link>
         </div>
       </div>
     </main>
-  );
+  )
 }

@@ -1,20 +1,20 @@
-import { Loader } from 'lucide-react';
+import { Loader } from 'lucide-react'
 
 interface ContentLoadingProps {
-  className?: string;
+  className?: string
 }
 
-function ContentLoading({ className }: ContentLoadingProps) {
+function ContentLoading ({ className }: ContentLoadingProps) {
   return (
     <div
-      className={`flex min-h-[350px] flex-col items-center justify-center border-none rounded-md border p-8 text-center animate-in fade-in-50 ${className}`}
+      className={`flex min-h-[350px] flex-col items-center justify-center rounded-md border border-none p-8 text-center animate-in fade-in-50 ${className}`}
     >
       <div className='flex flex-row items-center gap-2'>
-        <Loader className='h-4 w-4 animate-spin' />
+        <Loader className='size-4 animate-spin' />
         <p className='text-sm'>Loading results ...</p>
       </div>
     </div>
-  );
+  )
 }
 
-export default ContentLoading;
+export default ContentLoading

@@ -8,7 +8,6 @@ body,
   height: 100%;
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -55,7 +54,6 @@ body,
     --ring: 188.97, 90.63%, 37.65%;
   }
 }
-
 
 @layer base {
   * {

@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import { SVGProps } from 'react'
 const GithubIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     enableBackground='new 0 0 512 512'
@@ -19,5 +19,5 @@ const GithubIcon = (props: SVGProps<SVGSVGElement>) => (
       />
     </g>
   </svg>
-);
-export default GithubIcon;
+)
+export default GithubIcon

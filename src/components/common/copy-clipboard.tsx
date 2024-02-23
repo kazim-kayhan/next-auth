@@ -1,19 +1,19 @@
-'use client';
+'use client'
 
-import { cn } from '@/lib/utils';
-import { CopyIcon } from 'lucide-react';
-import { toast } from 'sonner';
+import { cn } from '@/lib/utils'
+import { CopyIcon } from 'lucide-react'
+import { toast } from 'sonner'
 
 interface CopyClipboardProps {
-  value: string;
-  className?: string;
+  value: string
+  className?: string
 }
 
-function CopyClipboard({ value, className }: CopyClipboardProps) {
+function CopyClipboard ({ value, className }: CopyClipboardProps) {
   const onCopy = () => {
-    navigator.clipboard.writeText(value);
-    toast.success('Value copied  🎉');
-  };
+    navigator.clipboard.writeText(value)
+    toast.success('Value copied  🎉')
+  }
   return (
     <button
       type='button'
@@ -25,7 +25,7 @@ function CopyClipboard({ value, className }: CopyClipboardProps) {
     >
       <CopyIcon size={15} />
     </button>
-  );
+  )
 }
 
-export default CopyClipboard;
+export default CopyClipboard

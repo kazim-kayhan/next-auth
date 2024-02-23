@@ -1,17 +1,17 @@
-import { prisma } from '@/lib/db';
+import { prisma } from '@/lib/db'
 
 export const getVerificationTokenByEmail = async (email: string) => {
   try {
-    return await prisma.verificationToken.findFirst({ where: { email } });
+    return await prisma.verificationToken.findFirst({ where: { email } })
   } catch (error) {
-    return null;
+    return null
   }
-};
+}
 
 export const getVerificationTokenByToken = async (token: string) => {
   try {
-    return await prisma.verificationToken.findUnique({ where: { token } });
+    return await prisma.verificationToken.findUnique({ where: { token } })
   } catch (error) {
-    return null;
+    return null
   }
-};
+}

@@ -26,8 +26,8 @@ import {
   SunMedium,
   Trash,
   User,
-  X,
-} from 'lucide-react';
+  X
+} from 'lucide-react'
 
 export const Icons = {
   logo: Command,
@@ -57,5 +57,5 @@ export const Icons = {
   check: Check,
   goal: GoalIcon,
   alert: AlertTriangleIcon,
-  circleIcon: CircleIcon,
-};
+  circleIcon: CircleIcon
+}
