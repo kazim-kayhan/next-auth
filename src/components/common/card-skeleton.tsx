@@ -1,6 +1,6 @@
-import { Skeleton } from '../ui/skeleton'
+import { Skeleton } from '../ui/skeleton';
 
-export function CardSkeleton () {
+export function CardSkeleton() {
   return (
     <div className='rounded-md border p-4'>
       <div className='flex w-full flex-row items-center gap-3'>
@@ -14,5 +14,5 @@ export function CardSkeleton () {
         <Skeleton className='h-4 w-[30%] ' />
       </div>
     </div>
-  )
+  );
 }

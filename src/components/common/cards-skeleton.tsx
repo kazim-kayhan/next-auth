@@ -1,5 +1,5 @@
-import { Skeleton } from '../ui/skeleton'
-import { CardSkeleton } from './card-skeleton'
+import { Skeleton } from '../ui/skeleton';
+import { CardSkeleton } from './card-skeleton';
 
 const CardsSkeleton = () => {
   return (
@@ -10,7 +10,7 @@ const CardsSkeleton = () => {
         <CardSkeleton />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CardsSkeleton
+export default CardsSkeleton;

@@ -1,7 +1,7 @@
-import CardWrapper from '@/components/auth/card-wrapper'
-import { ExclamationTriangleIcon } from '@radix-ui/react-icons'
+import CardWrapper from '@/components/auth/card-wrapper';
+import { ExclamationTriangleIcon } from '@radix-ui/react-icons';
 
-type Props = {}
+type Props = {};
 
 const AuthErrorPage = (props: Props) => {
   return (
@@ -14,7 +14,7 @@ const AuthErrorPage = (props: Props) => {
         <ExclamationTriangleIcon className='text-destructive' />
       </div>
     </CardWrapper>
-  )
-}
+  );
+};
 
-export default AuthErrorPage
+export default AuthErrorPage;

@@ -1,20 +1,20 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { cn } from '@/lib/utils'
-import { AlertTriangleIcon, CircleIcon, GoalIcon, ShieldAlertIcon } from 'lucide-react'
+import { cn } from '@/lib/utils';
+import { AlertTriangleIcon, CircleIcon, GoalIcon, ShieldAlertIcon } from 'lucide-react';
 
 const Icons = {
   goal: GoalIcon,
   shieldSlash: ShieldAlertIcon,
   alert: AlertTriangleIcon,
-  circleIcon: CircleIcon
-}
+  circleIcon: CircleIcon,
+};
 
 interface EmptyPlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {
-  childrenClassName?: string
+  childrenClassName?: string;
 }
 
-export function EmptyPlaceholder ({
+export function EmptyPlaceholder({
   className,
   childrenClassName,
   children,
@@ -37,44 +37,44 @@ export function EmptyPlaceholder ({
         {children}
       </div>
     </div>
-  )
+  );
 }
 
 interface EmptyPlaceholderIconProps extends Partial<React.SVGProps<SVGSVGElement>> {
-  name: keyof typeof Icons
+  name: keyof typeof Icons;
 }
 
-EmptyPlaceholder.Icon = function EmptyPlaceHolderIcon ({
+EmptyPlaceholder.Icon = function EmptyPlaceHolderIcon({
   name,
   className,
   ...props
 }: EmptyPlaceholderIconProps) {
-  const myRef = React.useRef<SVGSVGElement>(null) as any
-  const Icon = Icons[name]
+  const myRef = React.useRef<SVGSVGElement>(null) as any;
+  const Icon = Icons[name];
 
   if (!Icon) {
-    return null
+    return null;
   }
 
   return (
     <div className='flex size-20 items-center justify-center rounded-full bg-muted'>
       <Icon ref={myRef} className={cn('h-10 w-10', className)} {...props} />
     </div>
-  )
-}
+  );
+};
 
 interface EmptyPlaceholderTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
 
-EmptyPlaceholder.Title = function EmptyPlaceholderTitle ({
+EmptyPlaceholder.Title = function EmptyPlaceholderTitle({
   className,
   ...props
 }: EmptyPlaceholderTitleProps) {
-  return <h2 className={cn('mt-6 text-base font-semibold', className)} {...props} />
-}
+  return <h2 className={cn('mt-6 text-base font-semibold', className)} {...props} />;
+};
 
 interface EmptyPlaceholderDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 
-EmptyPlaceholder.Description = function EmptyPlaceholderDescription ({
+EmptyPlaceholder.Description = function EmptyPlaceholderDescription({
   className,
   ...props
 }: EmptyPlaceholderDescriptionProps) {
@@ -86,5 +86,5 @@ EmptyPlaceholder.Description = function EmptyPlaceholderDescription ({
       )}
       {...props}
     />
-  )
-}
+  );
+};

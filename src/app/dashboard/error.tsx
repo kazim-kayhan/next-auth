@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Terminal } from 'lucide-react'
-import { useEffect } from 'react'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
+import { Terminal } from 'lucide-react';
+import { useEffect } from 'react';
 
-export default function Error ({
+export default function Error({
   error,
-  reset
+  reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error)
-  }, [error])
+    console.error(error);
+  }, [error]);
 
   return (
     <Alert>
@@ -25,5 +25,5 @@ export default function Error ({
         Try Again
       </Button>
     </Alert>
-  )
+  );
 }

@@ -1,14 +1,14 @@
-import { auth } from '@/auth'
-import LoginButton from '@/components/auth/login-button'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { Poppins } from 'next/font/google'
+import { auth } from '@/auth';
+import LoginButton from '@/components/auth/login-button';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { Poppins } from 'next/font/google';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['600'] })
+const poppins = Poppins({ subsets: ['latin'], weight: ['600'] });
 
-export default async function Home () {
-  const session = await auth()
-  console.log('🚀 ~ Home ~ session:', session)
+export default async function Home() {
+  const session = await auth();
+  console.log('🚀 ~ Home ~ session:', session);
   return (
     <main className='flex h-full flex-col items-center justify-center'>
       <div className='space-y-6 text-center'>
@@ -23,5 +23,5 @@ export default async function Home () {
         </LoginButton>
       </div>
     </main>
-  )
+  );
 }

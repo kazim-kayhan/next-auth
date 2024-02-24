@@ -1,11 +1,11 @@
-import { cn } from '@/lib/utils'
-import { Poppins } from 'next/font/google'
+import { cn } from '@/lib/utils';
+import { Poppins } from 'next/font/google';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['600'] })
+const poppins = Poppins({ subsets: ['latin'], weight: ['600'] });
 
 type Props = {
-  label: string
-}
+  label: string;
+};
 
 const Header = ({ label }: Props) => {
   return (
@@ -17,7 +17,7 @@ const Header = ({ label }: Props) => {
       </h1>
       <p className='text-muted-foreground'>{label}</p>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

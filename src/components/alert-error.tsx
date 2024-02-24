@@ -1,10 +1,10 @@
-import { cn } from '@/lib/utils'
-import { ExclamationTriangleIcon } from '@radix-ui/react-icons'
-import { Alert, AlertDescription, AlertTitle } from './ui/alert'
+import { cn } from '@/lib/utils';
+import { ExclamationTriangleIcon } from '@radix-ui/react-icons';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 
 type Props = {
-  message: string | undefined
-}
+  message: string | undefined;
+};
 
 const AlertError = ({ message }: Props) => {
   return (
@@ -13,7 +13,7 @@ const AlertError = ({ message }: Props) => {
       <AlertTitle>Woops!</AlertTitle>
       <AlertDescription>{message}</AlertDescription>
     </Alert>
-  )
-}
+  );
+};
 
-export default AlertError
+export default AlertError;

@@ -1,27 +1,27 @@
-'use client'
+'use client';
 
-import { Dialog, Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Monitor, Search, User } from 'lucide-react'
-import Link from 'next/link'
-import React, { Fragment, useState } from 'react'
+import { Dialog, Menu, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Monitor, Search, User } from 'lucide-react';
+import Link from 'next/link';
+import React, { Fragment, useState } from 'react';
 
-import Logo from '@/components/common/logo'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Separator } from '@/components/ui/separator'
-import { siteSettings } from '@/config/site.settings'
-import { cn } from '@/lib/utils'
+import Logo from '@/components/common/logo';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
+import { siteSettings } from '@/config/site.settings';
+import { cn } from '@/lib/utils';
 
 type Props = {
-  children: React.ReactNode
-  signOutButton: React.ReactNode
-}
+  children: React.ReactNode;
+  signOutButton: React.ReactNode;
+};
 
-export default function AdminLayout ({ children, signOutButton }: Props) {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+export default function AdminLayout({ children, signOutButton }: Props) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div>
@@ -389,5 +389,5 @@ export default function AdminLayout ({ children, signOutButton }: Props) {
         </main>
       </div>
     </div>
-  )
+  );
 }

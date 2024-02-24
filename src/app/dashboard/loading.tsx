@@ -1,7 +1,7 @@
-import ContentLoading from '@/components/common/content-loading'
+import ContentLoading from '@/components/common/content-loading';
 
 const Loading = () => {
-  return <ContentLoading />
-}
+  return <ContentLoading />;
+};
 
-export default Loading
+export default Loading;

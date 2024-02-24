@@ -1,5 +1,5 @@
-function DashboardPage () {
-  return <div>DashboardPage</div>
+function DashboardPage() {
+  return <div>DashboardPage</div>;
 }
 
-export default DashboardPage
+export default DashboardPage;

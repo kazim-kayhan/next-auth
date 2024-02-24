@@ -1,10 +1,10 @@
-import { cn } from '@/lib/utils'
-import { CheckCircledIcon } from '@radix-ui/react-icons'
-import { Alert, AlertDescription, AlertTitle } from './ui/alert'
+import { cn } from '@/lib/utils';
+import { CheckCircledIcon } from '@radix-ui/react-icons';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 
 type Props = {
-  message: string | undefined
-}
+  message: string | undefined;
+};
 
 const AlertSuccess = ({ message }: Props) => {
   return (
@@ -13,7 +13,7 @@ const AlertSuccess = ({ message }: Props) => {
       <AlertTitle>Success!</AlertTitle>
       <AlertDescription>{message}</AlertDescription>
     </Alert>
-  )
-}
+  );
+};
 
-export default AlertSuccess
+export default AlertSuccess;

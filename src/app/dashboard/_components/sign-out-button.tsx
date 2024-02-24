@@ -1,14 +1,14 @@
-import { signOut } from '@/auth'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { ExitIcon } from '@radix-ui/react-icons'
+import { signOut } from '@/auth';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { ExitIcon } from '@radix-ui/react-icons';
 
-function SignOutButton () {
+function SignOutButton() {
   return (
     <form
       action={async () => {
-        'use server'
-        await signOut()
+        'use server';
+        await signOut();
       }}
     >
       <Button
@@ -29,7 +29,7 @@ function SignOutButton () {
         Sign out
       </Button>
     </form>
-  )
+  );
 }
 
-export default SignOutButton
+export default SignOutButton;

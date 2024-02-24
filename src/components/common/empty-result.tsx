@@ -1,8 +1,8 @@
-import { RefreshCcw } from 'lucide-react'
-import { Button } from '../ui/button'
-import { EmptyPlaceholder } from './empty-placeholder'
+import { RefreshCcw } from 'lucide-react';
+import { Button } from '../ui/button';
+import { EmptyPlaceholder } from './empty-placeholder';
 
-function EmptyResult ({ refetch }: { refetch: any }) {
+function EmptyResult({ refetch }: { refetch: any }) {
   return (
     <EmptyPlaceholder>
       <EmptyPlaceholder.Icon name='alert' />
@@ -15,7 +15,7 @@ function EmptyResult ({ refetch }: { refetch: any }) {
         Try Again
       </Button>
     </EmptyPlaceholder>
-  )
+  );
 }
 
-export default EmptyResult
+export default EmptyResult;
